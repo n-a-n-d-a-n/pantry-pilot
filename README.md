@@ -149,7 +149,7 @@ pantrypilot/
 
 - Firestore security rules enforce strict per-user data isolation (`users/{uid}/...`), verified against unauthorized cross-user access paths.
 - All AI-generated content passes through explicit vegetarian-exclusion guardrails at the prompt level.
-- API keys are handled per Firebase's standard client-side security model, where the Firestore rules — not the API key — form the actual security boundary.
+- API keys are handled per Firebase's standard client-side security model, where the Firestore rules - not the API key - form the actual security boundary.
 
 ---
 
