@@ -53,7 +53,7 @@ Generates recipes engineered to rescue whichever ingredients are closest to expi
 - **Bilingual recipes** - every recipe renders in English and Hindi (हिन्दी) with natural translation and a one-tap language toggle.
 
 ### 📊 Waste & Impact Insights
-7-day recipe-rescue trend chart, Zero-Waste Score, and estimated money saved — computed from real usage data.
+7-day recipe-rescue trend chart, Zero-Waste Score, and estimated money saved - computed from real usage data.
 
 ### 🌗 Dark Mode & Glassmorphism UI
 Full light/dark theming with system-preference detection, and a warm-minimalist glass aesthetic throughout.
