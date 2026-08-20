@@ -48,9 +48,9 @@ Real-time filtering by urgency, storage location, and category - backed by live 
 Generates recipes engineered to rescue whichever ingredients are closest to expiry, with difficulty rating, cook time, and a one-tap "I Cooked This" action that closes the loop back into inventory and the Zero-Waste Score.
 
 ### 🇮🇳 Built for India, Not Adapted for It
-- **100% vegetarian by design** — Gemini's vision and recipe pipelines hard-exclude meat, poultry, fish, and eggs at the prompt level, with skipped items surfaced transparently rather than silently dropped.
-- **Native ₹ reasoning** — pricing and savings estimates are grounded in realistic Indian grocery prices, not a currency symbol applied over USD-flavored numbers.
-- **Bilingual recipes** — every recipe renders in English and Hindi (हिन्दी) with natural translation and a one-tap language toggle.
+- **100% vegetarian by design** - Gemini's vision and recipe pipelines hard-exclude meat, poultry, fish, and eggs at the prompt level, with skipped items surfaced transparently rather than silently dropped.
+- **Native ₹ reasoning** - pricing and savings estimates are grounded in realistic Indian grocery prices, not a currency symbol applied over USD-flavored numbers.
+- **Bilingual recipes** - every recipe renders in English and Hindi (हिन्दी) with natural translation and a one-tap language toggle.
 
 ### 📊 Waste & Impact Insights
 7-day recipe-rescue trend chart, Zero-Waste Score, and estimated money saved — computed from real usage data.
