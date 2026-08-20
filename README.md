@@ -124,7 +124,7 @@ Create a `.env.local` file in the project root:
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-You'll also need to add your Firebase project configuration — see `firebase-applet-config.json` for the expected shape (do **not** commit real production credentials to a public repo; use environment-specific config or Firebase's recommended client-config practices for public repos).
+You'll also need to add your Firebase project configuration - see `firebase-applet-config.json` for the expected shape (do **not** commit real production credentials to a public repo; use environment-specific config or Firebase's recommended client-config practices for public repos).
 
 ---
 
