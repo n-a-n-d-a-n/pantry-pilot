@@ -4,7 +4,7 @@
 
 ### AI-Powered, 100% Vegetarian Zero-Waste Kitchen Assistant
 
-Snap a photo. Gemini handles the rest — expiry tracking, zero-waste recipes, and pantry management, entirely in Hindi or English.
+Snap a photo. Gemini handles the rest - expiry tracking, zero-waste recipes, and pantry management, entirely in Hindi or English.
 
 </div>
 
@@ -27,7 +27,7 @@ Snap a photo. Gemini handles the rest — expiry tracking, zero-waste recipes, a
 
 ## 🎯 The Problem
 
-India wastes an estimated **68 million tonnes of food annually**, and at a household level it almost always comes down to the same thing: nobody remembers what's in the fridge until it's already spoiled. Existing pantry-tracking apps require manual logging of every item — which is exactly why adoption drops off within a week.
+India wastes an estimated **68 million tonnes of food annually**, and at a household level it almost always comes down to the same thing: nobody remembers what's in the fridge until it's already spoiled. Existing pantry-tracking apps require manual logging of every item - which is exactly why adoption drops off within a week.
 
 **PantryPilot removes manual entry entirely. A photo is the only input the app needs.**
 
