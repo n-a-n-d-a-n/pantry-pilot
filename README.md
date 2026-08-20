@@ -42,7 +42,7 @@ Live camera capture or drag-and-drop upload of groceries, an open fridge, or a r
 Photograph a receipt and line items are parsed directly into inventory with realistic home shelf-life estimates.
 
 ### 🚦 Color-Coded Urgency Dashboard
-Real-time filtering by urgency, storage location, and category — backed by live Firestore sync across devices.
+Real-time filtering by urgency, storage location, and category - backed by live Firestore sync across devices.
 
 ### 👨‍🍳 "Cook This" Zero-Waste Recipe Generator
 Generates recipes engineered to rescue whichever ingredients are closest to expiry, with difficulty rating, cook time, and a one-tap "I Cooked This" action that closes the loop back into inventory and the Zero-Waste Score.
