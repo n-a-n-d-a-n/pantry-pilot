@@ -76,7 +76,7 @@ Full light/dark theming with system-preference detection, and a warm-minimalist 
 
 ## 🏗️ Architecture
 
-- **AI Reliability:** Three-tier model fallback chain with jittered exponential backoff retry, plus fail-safe fallback content generation across all AI endpoints — the app never shows a broken state, even during Gemini API congestion.
+- **AI Reliability:** Three-tier model fallback chain with jittered exponential backoff retry, plus fail-safe fallback content generation across all AI endpoints - the app never shows a broken state, even during Gemini API congestion.
 - **Data Isolation:** Every Firestore read/write is scoped to `users/{uid}/...` with default-deny security rules and per-field schema validation on writes.
 - **Honest Failure States:** An unrecognized photo shows a clear "couldn't identify anything" message rather than fabricating placeholder inventory.
 
