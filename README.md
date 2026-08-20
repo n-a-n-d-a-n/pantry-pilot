@@ -36,7 +36,7 @@ India wastes an estimated **68 million tonnes of food annually**, and at a house
 ## ✨ Key Features
 
 ### 📸 Frictionless Image-to-Inventory
-Live camera capture or drag-and-drop upload of groceries, an open fridge, or a receipt. Gemini's multimodal vision extracts item names, quantities, and shelf-life estimates via strict `responseSchema` structured JSON output — zero manual typing.
+Live camera capture or drag-and-drop upload of groceries, an open fridge, or a receipt. Gemini's multimodal vision extracts item names, quantities, and shelf-life estimates via strict `responseSchema` structured JSON output - zero manual typing.
 
 ### 🧾 Receipt Scan Mode (OCR)
 Photograph a receipt and line items are parsed directly into inventory with realistic home shelf-life estimates.
