@@ -1,0 +1,84 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidInventoryItem(data, userId) {
+      return data.userId == userId &&
+        data.itemName is string && data.itemName.size() > 0 && data.itemName.size() <= 100 &&
+        data.quantity is string && data.quantity.size() <= 60 &&
+        data.category is string && data.category.size() <= 50 &&
+        data.storageLocation is string && data.storageLocation.size() <= 20 &&
+        data.status in ['active', 'cooked', 'discarded'] &&
+        (data.estimatedShelfLifeDays is number || !('estimatedShelfLifeDays' in data));
+    }
+
+    function isValidWasteLog(data, userId) {
+      return data.userId == userId &&
+        data.itemName is string && data.itemName.size() > 0 && data.itemName.size() <= 100 &&
+        data.reason is string && data.reason.size() <= 50;
+    }
+
+    function isValidUserStats(data, userId) {
+      return data.userId == userId &&
+        data.zeroWasteScore is number &&
+        data.totalItemsRescued is number &&
+        data.estimatedMoneySaved is number &&
+        data.currentStreak is number;
+    }
+
+    // User data namespace
+    match /users/{userId} {
+      allow read, write: if isOwner(userId) && isValidId(userId);
+
+      // Subcollection: Inventory
+      match /inventory/{itemId} {
+        allow get, delete: if isOwner(userId) && isValidId(itemId);
+        allow list: if isOwner(userId);
+        allow create: if isOwner(userId) && isValidId(itemId) && isValidInventoryItem(incoming(), userId);
+        allow update: if isOwner(userId) && isValidId(itemId) && isValidInventoryItem(incoming(), userId) && incoming().userId == existing().userId;
+      }
+
+      // Subcollection: Waste Log
+      match /wasteLog/{logId} {
+        allow get, delete: if isOwner(userId) && isValidId(logId);
+        allow list: if isOwner(userId);
+        allow create: if isOwner(userId) && isValidId(logId) && isValidWasteLog(incoming(), userId);
+        allow update: if isOwner(userId) && isValidId(logId) && isValidWasteLog(incoming(), userId) && incoming().userId == existing().userId;
+      }
+
+      // Subcollection: Stats Summary
+      match /stats/{docId} {
+        allow get, delete: if isOwner(userId) && isValidId(docId);
+        allow list: if isOwner(userId);
+        allow create, update: if isOwner(userId) && isValidId(docId) && isValidUserStats(incoming(), userId);
+      }
+    }
+  }
+}

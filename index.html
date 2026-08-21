@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PantryPilot — AI Zero-Waste Kitchen Assistant</title>
+    <meta name="description" content="AI-powered zero-waste kitchen assistant that scans groceries with Gemini vision to track inventory and generate recipes." />
+    <meta property="og:title" content="PantryPilot — AI Zero-Waste Kitchen Assistant" />
+    <meta property="og:description" content="AI-powered zero-waste kitchen assistant that scans groceries with Gemini vision to track inventory and generate recipes." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('pantrypilot_theme');
+          var isDark = saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+
+        // Global early interceptor for iframe / sandboxed HMR socket noise
+        var isHmrNoise = function(msg) {
+          if (!msg) return false;
+          var str = typeof msg === 'string' ? msg : (msg.message || '');
+          return str.indexOf('WebSocket closed without opened') !== -1 ||
+                 str.indexOf('failed to connect to websocket') !== -1;
+        };
+
+        window.addEventListener('unhandledrejection', function(event) {
+          if (isHmrNoise(event.reason)) {
+            event.preventDefault();
+            if (typeof event.stopImmediatePropagation === 'function') {
+              event.stopImmediatePropagation();
+            }
+          }
+        }, true);
+
+        window.addEventListener('error', function(event) {
+          if (isHmrNoise(event.message) || isHmrNoise(event.error)) {
+            event.preventDefault();
+            if (typeof event.stopImmediatePropagation === 'function') {
+              event.stopImmediatePropagation();
+            }
+          }
+        }, true);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

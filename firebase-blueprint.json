@@ -1,0 +1,162 @@
+{
+  "entities": {
+    "InventoryItem": {
+      "title": "InventoryItem",
+      "description": "A vegetarian food item tracked in the user's pantry or fridge.",
+      "type": "object",
+      "properties": {
+        "itemName": {
+          "type": "string",
+          "description": "Name of the vegetarian food item",
+          "maxLength": 100,
+          "minLength": 1
+        },
+        "quantity": {
+          "type": "string",
+          "description": "Quantity or volume of the item",
+          "maxLength": 60
+        },
+        "category": {
+          "type": "string",
+          "description": "Food category (vegetarian only)",
+          "maxLength": 50
+        },
+        "storageLocation": {
+          "type": "string",
+          "description": "Storage spot (Fridge, Pantry, Freezer, Counter)",
+          "maxLength": 20
+        },
+        "addedDate": {
+          "type": "string",
+          "description": "ISO date string when item was added",
+          "maxLength": 40
+        },
+        "estimatedShelfLifeDays": {
+          "type": "number",
+          "description": "Estimated remaining days before expiration"
+        },
+        "confidence": {
+          "type": "string",
+          "description": "AI detection note or confidence indicator",
+          "maxLength": 200
+        },
+        "status": {
+          "type": "string",
+          "description": "Current status: active, cooked, or discarded",
+          "enum": ["active", "cooked", "discarded"]
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the owner user",
+          "maxLength": 128
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation timestamp",
+          "maxLength": 40
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Last updated timestamp",
+          "maxLength": 40
+        }
+      },
+      "required": ["itemName", "quantity", "category", "storageLocation", "status", "userId"]
+    },
+    "WasteLog": {
+      "title": "WasteLog",
+      "description": "A record of discarded food for waste analytics and zero-waste coaching.",
+      "type": "object",
+      "properties": {
+        "itemName": {
+          "type": "string",
+          "description": "Name of the discarded item",
+          "maxLength": 100
+        },
+        "discardedDate": {
+          "type": "string",
+          "description": "ISO date when item was discarded",
+          "maxLength": 40
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for waste (expired, overbought, other)",
+          "maxLength": 50
+        },
+        "quantity": {
+          "type": "string",
+          "description": "Quantity discarded",
+          "maxLength": 60
+        },
+        "category": {
+          "type": "string",
+          "description": "Food category",
+          "maxLength": 50
+        },
+        "estimatedCost": {
+          "type": "number",
+          "description": "Estimated monetary loss in dollars"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the owner user",
+          "maxLength": 128
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation timestamp",
+          "maxLength": 40
+        }
+      },
+      "required": ["itemName", "discardedDate", "reason", "userId"]
+    },
+    "UserStats": {
+      "title": "UserStats",
+      "description": "Summary metrics for user's kitchen waste prevention performance.",
+      "type": "object",
+      "properties": {
+        "zeroWasteScore": {
+          "type": "number",
+          "description": "Score from 0 to 100"
+        },
+        "totalItemsRescued": {
+          "type": "number",
+          "description": "Count of items cooked/rescued"
+        },
+        "estimatedMoneySaved": {
+          "type": "number",
+          "description": "Dollars saved by eating food before spoiling"
+        },
+        "currentStreak": {
+          "type": "number",
+          "description": "Days streak of zero waste"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the owner user",
+          "maxLength": 128
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Last updated timestamp",
+          "maxLength": 40
+        }
+      },
+      "required": ["zeroWasteScore", "totalItemsRescued", "estimatedMoneySaved", "currentStreak", "userId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/inventory/{itemId}": {
+      "schema": "InventoryItem",
+      "description": "User's current and past inventory items"
+    },
+    "/users/{userId}/wasteLog/{logId}": {
+      "schema": "WasteLog",
+      "description": "User's discarded waste history"
+    },
+    "/users/{userId}/stats/summary": {
+      "schema": "UserStats",
+      "description": "User's calculated zero-waste statistics summary"
+    }
+  }
+}

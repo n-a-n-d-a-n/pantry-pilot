@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Google Sans", "Product Sans", "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: 'Google Sans', 'Product Sans', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #FFFBF5;
+  color: #2D2926;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html.dark body,
+body.dark {
+  background-color: #181614;
+  color: #F5F3EF;
+}
+
+@keyframes indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-indeterminate {
+  animation: indeterminate 1.5s infinite ease-in-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.25s ease-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}

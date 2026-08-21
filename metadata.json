@@ -1,0 +1,6 @@
+{
+  "name": "PantryPilot",
+  "description": "AI-powered zero-waste kitchen assistant that scans groceries/fridge contents and receipts with Gemini vision to track inventory and generate waste-reducing recipes.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
